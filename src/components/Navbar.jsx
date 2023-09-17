@@ -26,7 +26,7 @@ const Navbar = () => {
                 ${navbarOpen ? 'top-2' : '-top-64'}`}>
                 {
                     routes.map(route =>
-                        <li className="list-none text-xl font-bold text-gray-800 my-2 hover:bg-gray-400 rounded-lg p-1 md:p-2" key={route.id}>
+                        <li className="list-none text-xl font-bold text-gray-800 my-2 hover:bg-gray-400 rounded-lg px-3 md:p-2" key={route.id}>
                             <a href={route.path}>{route.name}</a>
                         </li>)
                 }
