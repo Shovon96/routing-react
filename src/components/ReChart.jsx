@@ -1,6 +1,10 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+// import { useState, CSSProperties } from "react";
+import BeatLoader from "react-spinners/BeatLoader";
+import { useEffect, useState } from 'react';
 
 const ReChart = () => {
+    const [loading, setLoading] = useState(true)
 
     const subjectChartLine = [
         { "student": "Abul", "math": 85, "physics": 78, "chemistry": 90, "english": 92 },
@@ -14,9 +18,26 @@ const ReChart = () => {
         { "student": "Kulbul", "math": 68, "physics": 72, "chemistry": 65, "english": 70 },
         { "student": "Kabul", "math": 90, "physics": 95, "chemistry": 92, "english": 94 }
     ];
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     return (
-        <div className='my-6'>
+        <div className='my-6 flex justify-center items-center relative'>
+
+            <div className=' absolute'>
+                {
+                    loading &&
+                    <BeatLoader className=''
+                        color={'#36d7b7'}
+                        margin={2}
+                        loading={true}
+                        cssOverride={''}
+                        speedMultiplier={1}
+                        size={25}
+                    />
+                }
+            </div>
             <BarChart width={900} height={500} data={subjectChartLine}>
                 <XAxis dataKey={'student'} stroke='green'></XAxis>
                 <YAxis></YAxis>
